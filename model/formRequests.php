@@ -77,3 +77,24 @@ if (isset($_POST['btn_add_subject'])) {
     }
 
 }
+
+if (isset($_POST['btn_add_question'])) {
+    $subjectId = $_POST['subject_id'];
+    $questionStatement = $_POST['question_statement'];
+    $option1 = $_POST['option1'];
+    $option2 = $_POST['option2'];
+    $option3 = $_POST['option3'];
+    $option4 = $_POST['option4'];
+    $answer = $_POST['answer'];
+
+        $sql = "INSERT INTO `questions`(`subject_id`, `question_statement`, `option_a`, `option_b`, `option_c`, 
+                        `option_d`, `answer`) 
+    VALUES 
+    ('$subjectId', '$questionStatement', '$option1', '$option2', '$option3', '$option4', '$answer')";
+
+        if ($conn->query($sql) === TRUE) {
+            header("Location: ../view/admin/index.php?page=questionList&success=questionAdd");
+        }
+
+}
+

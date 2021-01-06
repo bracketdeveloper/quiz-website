@@ -16,7 +16,13 @@
                 <a class="nav-link" href="index.php?page=addSubject">Add Subject </a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="index.php?page=subjectList">Subject List</a>
+                <a class="nav-link" href="index.php?page=subjectList">Subjects List</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php?page=addQuestion">Add Question </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php?page=questionList">Questions List</a>
             </li>
 
         </ul>

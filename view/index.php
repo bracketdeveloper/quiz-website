@@ -5,7 +5,8 @@ include "../model/functions.php";
 ?>
 
 <?php
-$allSubject = getAllSubjects();
+$allSubjects = getAllSubjects();
+$bgColorArray = array("l-bg-blue-dark", "l-bg-cherry", "l-bg-cyan", "l-bg-green", "l-bg-green-dark", "l-bg-orange", "l-bg-orange-dark");
 ?>
 
 <!doctype html>
@@ -31,13 +32,13 @@ include "../common/top-bar.php";
             <hr class="my-4">
             <?php
             if(!(isset($_SESSION['username']))){
-            ?>
+                ?>
                 <p class="lead text-center">
                     <a class="btn btn-primary btn-lg" href="login.php" role="button">Login</a>
                     <a class="btn btn-success btn-lg" href="register.php" role="button">Register</a>
                     <a class="btn btn-danger btn-lg" href="admin/" role="button">Admin</a>
                 </p>
-            <?php
+                <?php
             }
             ?>
         </div>
@@ -45,72 +46,37 @@ include "../common/top-bar.php";
 </div>
 <?php
 if((isset($_SESSION['username']))){
-?>
-<div class="container">
-    <div class="col-md-12">
-        <div class="row ">
-            <div class="col-xl-3 col-lg-6">
-                <div class="card l-bg-cherry">
-                    <div class="card-statistic-3 p-4">
-                        <div class="row align-items-center mb-2 d-flex">
-                            <div class="col-6">
-                                <h5 class="card-title mb-0">New Orders</h5>
-                            </div>
-                            <div class="col-6 text-right">
-                                <button class="btn btn-dark text-white">Start Test</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card l-bg-blue-dark">
-                    <div class="card-statistic-3 p-4">
-                        <div class="row align-items-center mb-2 d-flex">
-                            <div class="col-6">
-                                <h5 class="card-title mb-0">New Orders</h5>
-                            </div>
-                            <div class="col-6 text-right">
-                                <button class="btn btn-dark text-white">Start Test</button>
+    ?>
+    <div class="container">
+        <div class="col-md-12">
+            <div class="row ">
+                <?php
+                $bgColorIndex = 0;
+                foreach ($allSubjects as $subject) {
+                    ?>
+                    <div class="col-xl-3 col-lg-6">
+                        <div class="card <?php echo $bgColorArray[$bgColorIndex % 7]?>">
+                            <div class="card-statistic-3 p-4">
+                                <div class="row align-items-center mb-2 d-flex">
+                                    <div class="col-6">
+                                        <h5 class="card-title mb-0"><?php echo $subject['subject']?></h5>
+                                    </div>
+                                    <div class="col-6 text-right">
+                                        <a class="btn btn-dark text-white" href="startTest.php?subjectId=<?php echo $subject['subject_id']?>">Start Test</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                    <?php
+                    $bgColorIndex++;
+                }
+                ?>
             </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card l-bg-green-dark">
-                    <div class="card-statistic-3 p-4">
-                        <div class="row align-items-center mb-2 d-flex">
-                            <div class="col-6">
-                                <h5 class="card-title mb-0">New Orders</h5>
-                            </div>
-                            <div class="col-6 text-right">
-                                <button class="btn btn-dark text-white">Start Test</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xl-3 col-lg-6">
-                <div class="card l-bg-orange-dark">
-                    <div class="card-statistic-3 p-4">
-                        <div class="row align-items-center mb-2 d-flex">
-                            <div class="col-6">
-                                <h5 class="card-title mb-0">New Orders</h5>
-                            </div>
-                            <div class="col-6 text-right">
-                                <button class="btn btn-dark text-white">Start Test</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
-    </div>
 
-</div>
-<?php
+    </div>
+    <?php
 }
 ?>
 </body>

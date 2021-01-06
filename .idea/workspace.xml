@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88a8e5a8-4f5e-4e66-83bf-b34d0ec0bc2b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/common/admin-top-bar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/top-bar.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/db.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/formRequests.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/model/functions.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/admin/css/bootstrap.min.js.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/admin/css/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/admin/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/admin/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/admin/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/admin/logout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/css/bootstrap.min.js.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/css/custom.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/index.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/js/bootstrap.bundle.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/logout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/view/register.php" afterDir="false" />
-    </list>
+    <list default="true" id="88a8e5a8-4f5e-4e66-83bf-b34d0ec0bc2b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,5 +80,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
