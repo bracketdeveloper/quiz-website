@@ -12,6 +12,8 @@ if (isset($_GET['page'])) {
 
 <?php
 $allSubjects = getAllSubjects();
+$allQuestions = getAllQuestions();
+$allUsers = getAllUsers();
 ?>
     <!doctype html>
     <html lang="en">
@@ -90,7 +92,7 @@ $allSubjects = getAllSubjects();
                                 <td scope="row"><?php echo $sr ?></td>
                                 <td><?php echo $subject['subject'] ?></td>
                                 <td><a href="delete.php?q=delSubject&subjectId=<?php echo $subject['subject_id'] ?>"
-                                       class="btn btn-danger">Delete</a></td>
+                                       class="btn btn-danger" onclick="return confirm('Do you want delete this subject?')">Delete</a></td>
                             </tr>
                             <?php
                         }
@@ -160,27 +162,76 @@ $allSubjects = getAllSubjects();
         ?>
         <div class="container text-center">
             <div class="row">
-                <div class="col-lg-6 offset-md-3">
+                <div class="col-lg-12">
                     <h1>Question List</h1>
                     <table class="table table-striped">
                         <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Subject Name</th>
+                            <th scope="col">Question Statement</th>
+                            <th scope="col">Option 1</th>
+                            <th scope="col">Option 2</th>
+                            <th scope="col">Option 3</th>
+                            <th scope="col">Option 4</th>
+                            <th scope="col">Answer</th>
+                            <th scope="col">Subject</th>
                             <th scope="col">Delete</th>
                         </tr>
                         </thead>
                         <tbody>
                         <?php
                         $sr = 0;
-                        foreach ($allSubjects as $subject) {
+                        foreach ($allQuestions as $question) {
+                            $sr++;
+                            $subject =  getSpecificSubject($question['subject_id'])
+                            ?>
+                            <tr>
+                                <td scope="row"><?php echo $sr ?></td>
+                                <td><?php echo $question['question_statement'] ?></td>
+                                <td><?php echo $question['option_a'] ?></td>
+                                <td><?php echo $question['option_b'] ?></td>
+                                <td><?php echo $question['option_c'] ?></td>
+                                <td><?php echo $question['option_d'] ?></td>
+                                <td><?php echo $question['answer'] ?></td>
+                                <td><?php echo $subject[0]['subject'] ?></td>
+                                <td><a href="delete.php?q=delQuestion&questionId=<?php echo $question['question_id'] ?>"
+                                       class="btn btn-danger" onclick="return confirm('Do you want to delete this question?')">Delete</a></td>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+
+        <?php
+    }elseif ($page == "usersList") {
+        ?>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-6 offset-3">
+                    <h1>Users List</h1>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Username</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $sr = 0;
+                        foreach ($allUsers as $user) {
                             $sr++;
                             ?>
                             <tr>
                                 <td scope="row"><?php echo $sr ?></td>
-                                <td><?php echo $subject['subject'] ?></td>
-                                <td><a href="delete.php?q=delSubject&subjectId=<?php echo $subject['subject_id'] ?>"
-                                       class="btn btn-danger">Delete</a></td>
+                                <td><?php echo $user['name'] ?></td>
+                                <td><?php echo $user['username'] ?></td>
                             </tr>
                             <?php
                         }
@@ -230,19 +281,37 @@ if (isset($_GET['success'])) {
 
 }
 
-if (isset($_GET['deleteSuccess'])) {
-    $deleteSuccess = $_GET['deleteSuccess'];
+if (isset($_GET['deleteSubjectSuccess'])) {
+    $deleteSubjectSuccess = $_GET['deleteSubjectSuccess'];
 
-    if ($deleteSuccess == 'true') {
+    if ($deleteSubjectSuccess == 'true') {
         echo "<script>
                 alert('Subject is deleted successfully');
                 window.location.href = 'index.php?page=subjectList'
               </script>";
     }
 
-    if ($deleteSuccess == 'false') {
+    if ($deleteSubjectSuccess == 'false') {
         echo "<script>
                 alert('Subject cannot be deleted because having questions');
+                window.location.href = 'index.php?page=subjectList'
+              </script>";
+    }
+}
+
+if (isset($_GET['deleteQuestionSuccess'])) {
+    $deleteQuestionSuccess = $_GET['deleteQuestionSuccess'];
+
+    if ($deleteQuestionSuccess == 'true') {
+        echo "<script>
+                alert('Question is deleted successfully');
+                window.location.href = 'index.php?page=questionList'
+              </script>";
+    }
+
+    if ($deleteQuestionSuccess == 'false') {
+        echo "<script>
+                alert('Question cannot be deleted because having questions');
                 window.location.href = 'index.php?page=subjectList'
               </script>";
     }

@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="88a8e5a8-4f5e-4e66-83bf-b34d0ec0bc2b" name="Default Changelist" comment="" />
+    <list default="true" id="88a8e5a8-4f5e-4e66-83bf-b34d0ec0bc2b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/view/startTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/admin-top-bar.php" beforeDir="false" afterPath="$PROJECT_DIR$/common/admin-top-bar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/model/functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/model/functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/admin/delete.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/delete.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/admin/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/admin/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/view/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/view/index.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,7 +43,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/view/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/view" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -48,9 +56,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\Quiz\view" />
       <recent name="C:\xampp\htdocs\Quiz\view\admin" />
       <recent name="C:\xampp\htdocs\Quiz\common" />
-      <recent name="C:\xampp\htdocs\Quiz\view" />
       <recent name="C:\xampp\htdocs\Quiz\model" />
     </key>
   </component>
@@ -64,6 +72,7 @@
       <updated>1609867294908</updated>
       <workItem from="1609867296373" duration="3822000" />
       <workItem from="1609871484210" duration="11082000" />
+      <workItem from="1610042044085" duration="8531000" />
     </task>
     <servers />
   </component>

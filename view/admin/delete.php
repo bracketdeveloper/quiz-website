@@ -12,10 +12,22 @@ if(!(isset($_GET['q']))){
         $subjectId = $_GET['subjectId'];
         $query = "DELETE FROM `subjects` WHERE `subject_id` = '$subjectId'";
         if ($conn->query($query) === TRUE) {
-            header("Location: index.php?page=subjectList&deleteSuccess=true");
+            header("Location: index.php?page=subjectList&deleteSubjectSuccess=true");
         } else {
-            header("Location: index.php?page=subjectList&deleteSuccess=false");
+            header("Location: index.php?page=subjectList&deleteSubjectSuccess=false");
         }
     }
+
+    if($_GET['q'] == 'delQuestion'){
+        $questionId = $_GET['questionId'];
+        $query = "DELETE FROM `questions` WHERE `question_id` = '$questionId'";
+        if ($conn->query($query) === TRUE) {
+            header("Location: index.php?page=questionList&deleteQuestionSuccess=true");
+        } else {
+            header("Location: index.php?page=questionList&deleteQuestionSuccess=false");
+        }
+    }
+
+
 }
 
