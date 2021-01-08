@@ -14,7 +14,7 @@ $fiveRandQuestions = getSubjectRandomFiveQuestions($subjectId);
 ?>
 
 <!doctype html>
-<html lang="en " oncontextmenu="return false">
+<html lang="en " >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
@@ -24,6 +24,7 @@ $fiveRandQuestions = getSubjectRandomFiveQuestions($subjectId);
     <link rel="stylesheet" href="css/bootstrap.min.js.css">
     <script src="js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/custom.css">
+    <script src="js/jquery.js"></script>
 </head>
 <body>
 <?php
@@ -62,7 +63,8 @@ if (!isset($_GET['startTest'])) {
                             <?php
                         } else {
                             ?>
-                            <td><a class="btn btn-success" href="startTest.php?startTest=true&subjectId=<?php echo $subjectId?>">Start</a></td>
+                            <td><a class="btn btn-success"
+                                   href="startTest.php?startTest=true&subjectId=<?php echo $subjectId ?>">Start</a></td>
                             <?php
                         }
                         ?>
@@ -73,54 +75,62 @@ if (!isset($_GET['startTest'])) {
         </div>
     </div>
     <?php
-}else{
-?>
+} else {
+    ?>
     <!--<script type="text/javascript">
         window.onbeforeunload = function() {
             return "Dude, are you sure you want to leave? Think of the kittens!";
         }
     </script>-->
-    <div class="container" >
+    <div class="container">
         <div class="row">
             <div class="col-lg-12 ">
                 <?php
                 $sr = 0;
                 foreach ($fiveRandQuestions as $question) {
-                    $sr++;
+                $sr++;
                 ?>
-                <div style="margin-top: 25px">
-                    <table class="table table-strip questions">
-                        <tr>
-                            <th colspan="5">Question <?php echo $sr?>: <?php echo $question['question_statement']?></th>
-                        </tr>
-                        <tr>
-                            <td style="width: 10px"><input type="radio" name="option<?php echo $sr?>" value="option 1"></td>
-                            <th><?php echo $question['option_a']?></th>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" name="option<?php echo $sr?>" value="option 2"></td>
-                            <th><?php echo $question['option_b']?></th>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" name="option<?php echo $sr?>" value="option 3"></td>
-                            <th><?php echo $question['option_c']?></th>
-                        </tr>
-                        <tr>
-                            <td><input type="radio" name="option<?php echo $sr?>" value="option 4"></td>
-                            <th><?php echo $question['option_d']?></th>
-                        </tr>
-                    </table>
-                </div>
-                <?php
+                <form action="../model/formRequests.php" method="post">
+                    <div style="margin-top: 25px">
+                        <input type="text" value="<?php echo $subjectId?>" readonly hidden
+                               name="subject_id">
+                        <table class="table table-striped questions">
+                            <tr>
+                                <th colspan="5">Question <?php echo $sr ?>
+                                    : <?php echo $question['question_statement'] ?>
+                                    <input type="text" value="<?php echo $question['question_id']?>" readonly hidden
+                                    name="question_<?php echo $sr ?>_id">
+                                </th>
+                            </tr>
+                            <tr>
+                                <td style="width: 10px">
+                                    <input type="radio" name="given_answer<?php echo $sr ?>" value="option 1"></td>
+                                <th><?php echo $question['option_a'] ?></th>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="given_answer<?php echo $sr ?>" value="option 2"></td>
+                                <th><?php echo $question['option_b'] ?></th>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="given_answer<?php echo $sr ?>" value="option 3"></td>
+                                <th><?php echo $question['option_c'] ?></th>
+                            </tr>
+                            <tr>
+                                <td><input type="radio" name="given_answer<?php echo $sr ?>" value="option 4"></td>
+                                <th><?php echo $question['option_d'] ?></th>
+                            </tr>
+                        </table>
+                    </div>
+                    <?php
                     }
-                ?>
+                    ?>
 
-                    <input type="submit" class="btn btn-info" value="submit">
-
+                    <input type="submit" class="btn btn-info" value="submit" name="btn_submit_quiz" style="margin-bottom: 30px">
+                </form>
             </div>
         </div>
     </div>
-<?php
+    <?php
 }
 ?>
 </body>
