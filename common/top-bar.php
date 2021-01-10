@@ -22,6 +22,13 @@
                     <a class="nav-link" href="admin/">Admin</a>
                 </li>
                 <?php
+            } else {
+                ?>
+                <li class="nav-item active">
+                    <a class="nav-link" href="history.php">Quiz History </a>
+                </li>
+
+                <?php
             }
             ?>
 

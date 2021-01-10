@@ -14,6 +14,7 @@ if (isset($_GET['page'])) {
 $allSubjects = getAllSubjects();
 $allQuestions = getAllQuestions();
 $allUsers = getAllUsers();
+$allQuizzes = getAllQuizzes()
 ?>
     <!doctype html>
     <html lang="en">
@@ -238,6 +239,60 @@ $allUsers = getAllUsers();
                         ?>
                         </tbody>
                     </table>
+                </div>
+
+            </div>
+        </div>
+
+        <?php
+    }elseif ($page == "quizzesList") {
+        ?>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-lg-12 ">
+                    <h1>Quizzes List</h1>
+                    <div class="row">
+                        <div class="col-lg-8 text-center offset-2">
+                            <table class="table table-striped ">
+                                <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Subject</th>
+                                    <th>Total Marks</th>
+                                    <th>Obtain Marks</th>
+                                    <th>Percentage</th>
+                                    <th>Date</th>
+                                </tr>
+                                </thead>
+                                <?php
+                                foreach ($allQuizzes as $quiz) {
+                                    $userId = $quiz['user_id'];
+                                    $user = getSpecificUserById($userId)[0]['name'];
+                                    $subjectId = $quiz['subject_id'];
+                                    $subject = getSpecificSubject($subjectId)[0]['subject'];
+                                    $obtainMarks = $quiz['obtain_marks'];
+                                    $percentageMarks = $obtainMarks / 5 * 100;
+                                    $percentageMarks = floor($percentageMarks);
+                                    $date = $quiz['time'];
+                                    $date = date("d-m-Y H:i:s A", strtotime($date))
+                                    ?>
+                                    <tr>
+                                        <td><?php echo $user?></td>
+                                        <td><?php echo $subject?></td>
+                                        <td>5</td>
+                                        <td><?php echo $obtainMarks?></td>
+                                        <td><?php echo $percentageMarks?>%</td>
+                                        <td><?php echo $date?></td>
+                                    </tr>
+
+                                    <?php
+                                }
+                                ?>
+                            </table>
+
+                        </div>
+
+                    </div>
                 </div>
 
             </div>

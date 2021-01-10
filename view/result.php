@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 include "../model/functions.php";
 
 ?>
@@ -8,6 +7,9 @@ include "../model/functions.php";
 <?php
 $subjectId = $_GET['subjectId'];
 $subject = getSpecificSubject($subjectId);
+$quizResult = getSpecificQuizResultBySubject($subjectId);
+$percentageResult = $quizResult[0]['obtain_marks']/5 *100;
+$percentageResult = floor($percentageResult);
 ?>
 
 <!doctype html>
@@ -31,8 +33,28 @@ include "../common/top-bar.php";
         <div class="jumbotron">
             <h1 class="display-4">Result of <?php echo $subject[0]['subject']?> Test</h1>
             <hr class="my-4">
-
         </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 text-center offset-4">
+            <table class="table table-striped ">
+                <tr>
+                    <th>Total Marks</th>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <th>Obtained Marks</th>
+                    <td><?php echo $quizResult[0]['obtain_marks']?></td>
+                </tr>
+                <tr>
+                    <th>Marks Percentage</th>
+                    <td><?php echo $percentageResult ?>%</td>
+                </tr>
+            </table>
+            <a href="index.php" class="btn btn-primary text-white">Take More Test</a>
+            <a href="startTest.php?subjectId=<?php echo $subjectId?>" class="btn btn-success text-white">Retake</a>
+        </div>
+
     </div>
 </div>
 

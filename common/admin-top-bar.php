@@ -27,7 +27,9 @@
             <li class="nav-item active">
                 <a class="nav-link" href="index.php?page=usersList">Users List</a>
             </li>
-
+            <li class="nav-item active">
+                <a class="nav-link" href="index.php?page=quizzesList">Quizzes List</a>
+            </li>
         </ul>
     </div>
 
