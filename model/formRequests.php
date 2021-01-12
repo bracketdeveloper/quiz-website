@@ -96,6 +96,8 @@ if (isset($_POST['btn_add_question'])) {
 
     if ($conn->query($sql) === TRUE) {
         header("Location: ../view/admin/index.php?page=questionList&success=questionAdd");
+    }else{
+       echo $conn ->error;
     }
 
 }
